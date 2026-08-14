@@ -29,7 +29,7 @@ h2 {
 
 .menu {
      display: flex;
-     background: #009478;
+     background: #f8f7f4;
      height: 70px;
      width: 100%;
      padding: 5px;
@@ -39,6 +39,11 @@ h2 {
      top: 0;
      left: 0;
      z-index: 1000;
+}
+
+.menu.scrolled {
+     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
+     /* Jemná spodní linka */
 }
 
 .logo img {
@@ -58,7 +63,7 @@ h2 {
      font-family: 'Nunito Sans', Arial, Helvetica, sans-serif;
      font-size: 18px;
      font-weight: 600;
-     color: #fff;
+     color: #1e292b;
      padding: 22px;
      text-decoration: none;
      transition: all 0.3s ease-in-out;
@@ -102,13 +107,14 @@ h2 {
 }
 
 .product-image {
+     height: 300px;
      overflow: hidden;
 }
 
 .product-image img {
      width: 100%;
-     height: auto;
-     display: block;
+     height: 100%;
+     object-fit: contain;
      transition: transform 0.4s ease;
 }
 
