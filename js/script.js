@@ -95,89 +95,162 @@ const produkty = [
 
 const productsContainer = document.querySelector("#products");
 
-produkty.forEach(function (produkt) {
+if (productsContainer) {
 
-     const karta = document.createElement("article");
+     produkty.forEach(function (produkt) {
 
-     karta.classList.add("product-card");
+          const karta = document.createElement("article");
 
-     karta.innerHTML = `
-     <div class="product-image">
-          <img src="${produkt.obrazek}"
-          alt="Obraz ${produkt.nazev}"
-          width="400"
-          height="300"
-          loading="lazy">
-     </div>
-     
-     <div class="product-info">
-     
-          <h3>${produkt.nazev}</h3>
-     
-          <p class="product-description">
-               Originální obraz
-          </p>
+          karta.classList.add("product-card");
 
-          <p>${produkt.technika}</p>
+          karta.innerHTML = `
+               <div class="product-image">
+                    <img src="${produkt.obrazek}"
+                    alt="Obraz ${produkt.nazev}"
+                    width="400"
+                    height="300"
+                    loading="lazy">
+               </div>
 
-          <p>${produkt.rozmer}</p>
+               <div class="product-info">
 
-          <p class="price">
-               ${produkt.cena.toLocaleString("cs-CZ")} Kč
-          </p>
+                    <h3>${produkt.nazev}</h3>
 
-          <a href="#" class="btn" data-id="${produkt.id}">
-               PROHLÉDNOUT
-          </a>
+                    <p class="product-description">
+                         Originální obraz
+                    </p>
 
-     </div>
-     `;
-
-     productsContainer.appendChild(karta);
-});
+                    <p>${produkt.technika}</p>
 
 
-const tlacitka = document.querySelectorAll(".product-card .btn");
+                    <p>${produkt.rozmer}</p>
 
-tlacitka.forEach(function (tlacitko) {
+                    <p class="price">
+                         ${produkt.cena.toLocaleString("cs-CZ")} Kč
+                    </p>
 
-     tlacitko.addEventListener("click", function (event) {
+                    <a href="produkt.html?id=${produkt.id}" class="btn">
+                         PROHLÉDNOUT
+                    </a>
 
-          event.preventDefault();
+               </div>
+          `;
 
-          const idProduktu = Number(tlacitko.dataset.id);
+          productsContainer.appendChild(karta);
+     });
+}
 
-          const produkt = produkty.find(function (produkt) {
-               return produkt.id === idProduktu;
-          });
+let kosik = JSON.parse(localStorage.getItem("kosik")) || [];
+
+const productDetail = document.querySelector("#product-detail");
+
+if (productDetail) {
+
+     const parametry = new URLSearchParams(window.location.search);
+
+     const idProduktu = Number(parametry.get("id"));
+
+     console.log("Vybrané ID:", idProduktu);
+
+     const vybranyProdukt = produkty.find(function (produkt) {
+          return produkt.id === idProduktu;
+     });
+
+     console.log("Vybraný produkt:", vybranyProdukt);
 
 
-          const detail = document.querySelector("#products-detail");
-
-          detail.innerHTML = `
+     productDetail.innerHTML = `
      <div class="detail-image">
-         <img src="${produkt.obrazek}" alt="${produkt.nazev}">
+          <img src="${vybranyProdukt.obrazek}" 
+               alt="${vybranyProdukt.nazev}">
      </div>
 
      <div class="detail-info">
-          <h3>${produkt.nazev}</h3>
+
+          <h1>${vybranyProdukt.nazev}</h1>
 
           <p class="detail-category">
-              ${produkt.kategorie}
+               ${vybranyProdukt.kategorie}
           </p>
 
           <p>
-              <strong>Technika:</strong>${produkt.technika}
+               <strong>Technika:</strong>
+               ${vybranyProdukt.technika}
           </p>
 
           <p>
-              <strong>Rozmer:</strong>${produkt.rozmer}
+               <strong>Rozměr:</strong>
+               ${vybranyProdukt.rozmer}
           </p>
 
           <p class="detail-price">
-              ${produkt.cena.toLocaleString("cs-CZ")} Kč
+          ${vybranyProdukt.cena.toLocaleString("cs-CZ")} Kč
           </p>
-     </div>
-`;
+          
+          
+          <a href="" class="btn detail-cart">
+          PŘIDAT DO KOŠÍKU
+          </a>
+          
+          </div>
+          `;
+
+     const tlacitkoKosik = document.querySelector(".detail-cart");
+     tlacitkoKosik.addEventListener("click", function (event) {
+          event.preventDefault();
+
+          kosik.push(vybranyProdukt);
+
+          localStorage.setItem("kosik", JSON.stringify(kosik));
+
+          console.log("Košík:", kosik);
+
+          window.location.href = "kosik.html";
      });
-});
+
+}
+const cart = document.querySelector("#cart");
+
+if (cart) {
+
+     const kosik = JSON.parse(localStorage.getItem("kosik")) || [];
+
+
+     console.log("Obsah košíku:", kosik);
+
+     kosik.forEach(function (produkt) {
+
+          cart.innerHTML += `
+               <article class="cart-item">
+
+                    <img src="${produkt.obrazek}" 
+                         alt="${produkt.nazev}">
+
+                    <div class="cart-info">
+
+                         <h2>${produkt.nazev}</h2>
+
+                         <p>${produkt.kategorie}</p>
+
+                         <p class="cart-price">
+                              ${produkt.cena.toLocaleString("cs-CZ")} Kč
+                         </p>
+
+                    </div>
+
+               </article>
+          `;
+
+     });
+
+}
+
+
+
+
+
+
+
+
+
+

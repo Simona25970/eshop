@@ -24,14 +24,21 @@ body {
 }
 
 header .title-container {
-     margin: 100px 40px;
+     margin: 50px 40px 100px;
 }
 
 header .title-container h1,
 h2 {
      display: block;
-     margin: 70px 20px;
      text-align: center;
+}
+
+header .title-container h1 {
+     margin: 40px 20px 25px;
+}
+
+header .title-container h2 {
+     margin: 0 20px;
 }
 
 .menu {
@@ -75,6 +82,8 @@ h2 {
      text-decoration: none;
      transition: all 0.3s ease-in-out;
 }
+
+/* Obchod */
 
 .products-section h2 {
      text-align: center;
@@ -201,6 +210,46 @@ h2 {
 
 .btn:hover {
      background: #007a64;
+}
+
+/* Košík */
+.cart-section {
+     padding: 120px 40px 80px;
+}
+
+.cart-section h1 {
+     text-align: center;
+     margin-bottom: 50px;
+}
+
+.cart-item {
+     display: flex;
+     align-items: center;
+     gap: 30px;
+     max-width: 900px;
+     margin: 0 auto 25px;
+     padding: 20px;
+     background: #fff;
+     border: 1px solid #eeeeee;
+}
+
+.cart-item img {
+     width: 180px;
+     height: 135px;
+     object-fit: cover;
+}
+
+.cart-info h2 {
+     margin: 0 0 10px;
+}
+
+.cart-info p {
+     margin: 5px 0;
+}
+
+.cart-price {
+     font-weight: 700;
+     margin-top: 15px !important;
 }
 
 .container {
