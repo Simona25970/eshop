@@ -4,55 +4,97 @@
 <head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Art e-shop</title>
+     <title>Doprava a platba</title>
      <link rel="stylesheet" href="css/style.css">
-     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet" media="print"
-          onload="this.media='all'" />
-
 </head>
 
 <body>
      <header>
           <nav class="menu">
+
                <!-- Logo -->
-               <a href="#" class="logo">
-                    <img src="img/artlogo.webp" alt="artlogo" width="150" height="110" decoding="async" class="logo">
+               <a href="index.html" class="logo">
+                    <img src="img/artlogo.webp" alt="S-Art" width="150" height="110" decoding="async" class="logo">
                </a>
 
                <!-- Navigace -->
                <ul class="main-nav jq--main-nav">
-                    <li><a href="#">Úvod</a></li>
+                    <li><a href="index.html">Úvod</a></li>
                     <li><a href="index.html#products">Obchod</a></li>
                     <li><a href="#">O mně</a></li>
-                    <li><a href="#contact-section">Kontakt</a></li>
+                    <li><a href="index.html#contact-section">Kontakt</a></li>
                     <li><a href="kosik.html" class="kosik">🛒</a></li>
                </ul>
           </nav>
-
-          <div class="container">
-               <img src="img/arteshop.webp" alt="Art eshop" width="500" height="400" class="arteshop">
-          </div>
-
-          <div class="title-container">
-               <h1>UMĚNÍ, KTERÉ DÁVÁ RADOST Z TVOŘENÍ</h1>
-               <h2>Objevte obrazy malované srdcem</h2>
-          </div>
      </header>
 
-     <section class="products-section">
-          <div class="container">
 
-               <h2>RUČNĚ MALOVANÉ OBRAZY</h2>
-               <p class="section-intro">
-                    Vyberte si obraz, který vnese do vašeho domova radost a atmosféru.
-               </p>
-
-               <div class="products" id="products"></div>
+     <main>
+          <div class="checkout-steps">
+               <span>1. Košík</span>
+               <span>→</span>
+               <span class="active">2. Doprava a platba</span>
+               <span>→</span>
+               <span>3. Dodací údaje</span>
+               <span>→</span>
+               <span>4. Shrnutí</span>
           </div>
-     </section>
 
-     <section class="product-detail" id="product-detail">
-     </section>
+          <div class="order-form-container">
+
+               <h2>Doprava a platba</h2>
+               <form class="box" action="#" method="POST">
+                    <div class="order-options">
+                         <!-- Doprava -->
+                         <div class="form-section">
+                              <div class="form-group">
+
+                                   <h3>Vyberte dopravu</h3>
+                                   <label>
+                                        <input type="radio" name="shipping" value="zasilkovna" required>
+                                        Zásilkovna - 59 Kč
+                                   </label>
+
+                                   <label>
+                                        <input type="radio" name="shipping" value="posta"> Česká pošta - 69 Kč
+                                   </label>
+
+                                   <label>
+                                        <input type="radio" name="shipping" value="osobni-odber">
+                                        Osobní odběr -zdarma
+                                   </label>
+                              </div>
+                         </div>
+
+                         <!-- Platba -->
+                         <div class="form-section">
+                              <div class="form-group">
+
+                                   <h3>Vyberte platbu</h3>
+                                   <label>
+                                        <input type="radio" name="payment" value="prevod" required>
+                                        Bankovní převod - zdarma
+                                   </label>
+
+                                   <label>
+                                        <input type="radio" name="payment" value="karta">
+                                        Platba kartou - zdarma
+                                   </label>
+
+                                   <label>
+                                        <input type="radio" name="payment" value="prevzeti">
+                                        Platba při převzetí
+                                   </label>
+                              </div>
+                         </div>
+                    </div>
+
+                    <button type="submit">
+                         Dodací údaje →
+                    </button>
+               </form>
+          </div>
+     </main>
 
      <section id="contact-section">
           <footer class="site-footer">

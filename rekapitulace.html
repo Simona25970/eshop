@@ -4,55 +4,68 @@
 <head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Art e-shop</title>
+     <title>Rekapitulace | S-Art</title>
      <link rel="stylesheet" href="css/style.css">
-     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet" media="print"
-          onload="this.media='all'" />
-
 </head>
 
 <body>
      <header>
           <nav class="menu">
+
                <!-- Logo -->
-               <a href="#" class="logo">
-                    <img src="img/artlogo.webp" alt="artlogo" width="150" height="110" decoding="async" class="logo">
+               <a href="index.html" class="logo">
+                    <img src="img/artlogo.webp" alt="S-Art" width="150" height="110" decoding="async" class="logo">
                </a>
 
                <!-- Navigace -->
                <ul class="main-nav jq--main-nav">
-                    <li><a href="#">Úvod</a></li>
+                    <li><a href="index.html">Úvod</a></li>
                     <li><a href="index.html#products">Obchod</a></li>
                     <li><a href="#">O mně</a></li>
-                    <li><a href="#contact-section">Kontakt</a></li>
+                    <li><a href="index.html#contact-section">Kontakt</a></li>
                     <li><a href="kosik.html" class="kosik">🛒</a></li>
                </ul>
           </nav>
-
-          <div class="container">
-               <img src="img/arteshop.webp" alt="Art eshop" width="500" height="400" class="arteshop">
-          </div>
-
-          <div class="title-container">
-               <h1>UMĚNÍ, KTERÉ DÁVÁ RADOST Z TVOŘENÍ</h1>
-               <h2>Objevte obrazy malované srdcem</h2>
-          </div>
      </header>
 
-     <section class="products-section">
-          <div class="container">
+     <div class="checkout-steps">
+          <span>1. Košík</span>
+          <span>→</span>
+          <span>2. Doprava a platba</span>
+          <span>→</span>
+          <span>3. Dodací údaje</span>
+          <span>→</span>
+          <span class="active">4. Shrnutí</span>
+     </div>
 
-               <h2>RUČNĚ MALOVANÉ OBRAZY</h2>
-               <p class="section-intro">
-                    Vyberte si obraz, který vnese do vašeho domova radost a atmosféru.
-               </p>
+     <main>
+          <div class="order-form-container">
+               <h2>Rekapitulace objednávky</h2>
+               <section class="summary-section">
+                    <h3>Vaše produkty</h3>
+                    <div id="summary-items"></div>
+               </section>
 
-               <div class="products" id="products"></div>
+               <section class="summary-section">
+                    <h3>Doprava a platba</h3>
+                    <div id="summary-shipping"></div>
+                    <div id="summary-payment"></div>
+               </section>
+
+               <section class="summary-section">
+                    <h3>Dodací údaje</h3>
+                    <div id="summary-customer"></div>
+               </section>
+
+               <section class="summary-total">
+                    <div id="summary-total"></div>
+               </section>
+
+               <button type="button" class="submit-btn" id="confirm-order">
+                    Potvrdit objednávku
+               </button>
           </div>
-     </section>
-
-     <section class="product-detail" id="product-detail">
-     </section>
+     </main>
 
      <section id="contact-section">
           <footer class="site-footer">
@@ -110,7 +123,6 @@
                </div>
           </footer>
      </section>
-
 
      <script src="js/script.js"></script>
 </body>

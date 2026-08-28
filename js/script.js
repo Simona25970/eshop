@@ -140,6 +140,8 @@ if (productsContainer) {
      });
 }
 
+
+
 let kosik = JSON.parse(localStorage.getItem("kosik")) || [];
 
 const productDetail = document.querySelector("#product-detail");
@@ -215,10 +217,26 @@ if (cart) {
 
      const kosik = JSON.parse(localStorage.getItem("kosik")) || [];
 
-
      console.log("Obsah košíku:", kosik);
 
+     const emptyCart = document.querySelector("#empty-cart");
+
+     if (kosik.length > 0) {
+          emptyCart.style.display = "none";
+     }
+
+     let celkem = 0;
+
      kosik.forEach(function (produkt) {
+          celkem += produkt.cena;
+
+          const cartTotal = document.querySelector("#cart-total");
+
+          if (kosik.length > 0) {
+               cartTotal.innerHTML = `
+                   <h2>Celkem: ${celkem.toLocaleString("cs-CZ")} Kč</h2>`;
+          }
+
 
           cart.innerHTML += `
                <article class="cart-item">
@@ -235,6 +253,9 @@ if (cart) {
                          <p class="cart-price">
                               ${produkt.cena.toLocaleString("cs-CZ")} Kč
                          </p>
+                         <button class="remove-cart" data-id="${produkt.id}">
+                                        Odebrat z košíku
+                         </button>
 
                     </div>
 
@@ -243,7 +264,256 @@ if (cart) {
 
      });
 
+
+     const tlacitkaOdebrat = document.querySelectorAll(".remove-cart");
+
+     tlacitkaOdebrat.forEach(function (tlacitko) {
+
+          tlacitko.addEventListener("click", function () {
+
+               const id = Number(tlacitko.dataset.id);
+
+               const novyKosik = kosik.filter(function (produkt) {
+                    return produkt.id !== id;
+               });
+
+               localStorage.setItem("kosik", JSON.stringify(novyKosik));
+
+               location.reload();
+
+          });
+
+     });
+
 }
+
+
+const orderForm = document.querySelector(".order-form-container form");
+
+if (orderForm) {
+     orderForm.addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const shipping = document.querySelector('input[name="shipping"]:checked');
+
+          const payment = document.querySelector('input[name="payment"]:checked');
+
+          localStorage.setItem("doprava", shipping.value);
+          localStorage.setItem("platba", payment.value);
+
+          window.location.href = "udaje.html";
+     });
+}
+
+const customerForm = document.querySelector(".order-form-container form");
+
+if (customerForm) {
+
+     customerForm.addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const name = document.querySelector("#name").value;
+          const email = document.querySelector("#email").value;
+          const phone = document.querySelector("#phone").value;
+          const address = document.querySelector("#address").value;
+          const city = document.querySelector("#city").value;
+          const zip = document.querySelector("#zip").value;
+
+          const udajeZakaznika = {
+               name: name,
+               email: email,
+               phone: phone,
+               address: address,
+               city: city,
+               zip: zip
+          };
+          localStorage.setItem("udajeZakaznika", JSON.stringify(udajeZakaznika)
+          );
+
+          console.log(
+               "ULOŽENO DO LOCALSTORAGE:",
+               localStorage.getItem("udajeZakaznika")
+          );
+
+          window.location.href = "rekapitulace.html"
+     });
+}
+
+console.log("REKAPITULACE FUNGUJE");
+const summaryItems = document.querySelector("#summary-items");
+
+if (summaryItems) {
+
+     const kosik = JSON.parse(localStorage.getItem("kosik")) || [];
+
+     const doprava = localStorage.getItem("doprava");
+     const platba = localStorage.getItem("platba");
+     const udajeZakaznika = JSON.parse(localStorage.getItem("udajeZakaznika")) || {};
+
+     console.log("Jméno:", udajeZakaznika.name);
+     console.log("E-mail:", udajeZakaznika.email);
+     console.log("Telefon:", udajeZakaznika.phone);
+     console.log("Adresa:", udajeZakaznika.address);
+     console.log("Město:", udajeZakaznika.city);
+     console.log("PSČ:", udajeZakaznika.zip);
+
+
+     console.log("Údaje zákazníka:", udajeZakaznika);
+
+     let celkemObjednavky = 0;
+
+     const cenyDopravy = {
+          "zasilkovna": 59,
+          "posta": 69,
+          "osobni-odber": 0
+     };
+
+     const cenaDopravy = cenyDopravy[doprava] || 0;
+
+     // Produkty
+
+     kosik.forEach(function (produkt) {
+          celkemObjednavky += produkt.cena;
+
+          summaryItems.innerHTML += `
+         <div class="summary-items">
+                    <img src="${produkt.obrazek}"
+                         alt="${produkt.nazev}">
+                         
+             <div>
+                  <h4>${produkt.nazev}</h4>
+                  <p>${produkt.kategorie}</p>
+                  <p>
+                      ${produkt.cena.toLocaleString("cs-CZ")} Kč
+                   </p> 
+              </div>
+         </div>        
+       `;
+     });
+
+     // Doprava
+
+     const summaryShipping = document.querySelector("#summary-shipping");
+
+     const shippingNames = {
+          "zasilkovna": "Zásilkovna – 59 Kč",
+          "posta": "Česká pošta – 69 Kč",
+          "osobni-odber": "Osobní odběr – zdarma"
+     };
+
+     summaryShipping.innerHTML = `
+       <p><strong>Doprava:</strong> ${shippingNames[doprava] || ""}</p>`;
+
+
+     // Platba
+
+     const summaryPayment = document.querySelector("#summary-payment");
+
+     const paymentNames = {
+          "prevod": "Bankovní převod – zdarma",
+          "karta": "Platba kartou – zdarma",
+          "prevzeti": "Platba při převzetí"
+     };
+
+
+     summaryPayment.innerHTML = `
+         <p><strong>Platba:</strong> ${paymentNames[platba] || ""}</p>`;
+
+     // Dodací údaje
+
+     const summaryCustomer = document.querySelector("#summary-customer");
+
+     summaryCustomer.innerHTML = `
+             <p>${udajeZakaznika.name}</p>
+             <p>${udajeZakaznika.email}</p>
+             <p>${udajeZakaznika.phone}</p>
+             <p>${udajeZakaznika.address}</p>
+             <p>${udajeZakaznika.city}</p>
+             <p>${udajeZakaznika.zip}</p>
+     `;
+
+     // Celková cena
+
+     celkemObjednavky += cenaDopravy;
+     const summaryTotal = document.querySelector("#summary-total");
+
+     summaryTotal.innerHTML = `
+          <h2>
+              Celkem: ${celkemObjednavky.toLocaleString("cs-CZ")} Kč
+          </h2> 
+       `;
+}
+
+// Doprava a platba
+const shippingOptions = document.querySelectorAll('input[name="shipping"]');
+const paymentOptions = document.querySelectorAll('input[name=payment]');
+
+shippingOptions.forEach(function (option) {
+     option.addEventListener("change", function () {
+          localStorage.setItem("doprava", this.value);
+     });
+});
+
+paymentOptions.forEach(function (option) {
+     option.addEventListener("change", function () {
+          localStorage.setItem("platba", this.value);
+     });
+});
+
+
+// Zobrazení vybrané platby a dopravy
+const selectedShipping = document.querySelector("#selected-shipping");
+const selectedPayment = document.querySelector("#selected-payment");
+
+if (selectedShipping && selectedPayment) {
+     const shipping = localStorage.getItem("doprava");
+     const payment = localStorage.getItem("platba");
+
+     const shippingNames = {
+          "zasilkovna": "Zásilkovna - 59 Kč",
+          "posta": "Česká pošta - 69 Kč",
+          "osobní-odber": "Osobní odběr - zdarma"
+     };
+
+     const paymentNames = {
+          "prevod": "Bankovní převod - zdarma",
+          "karta": "Platba kartou - zdarma",
+          "prevzeti": "Platba při převzetí"
+     };
+
+     selectedShipping.textContent = shippingNames[shipping] || "";
+     selectedPayment.textContent = paymentNames[payment] || "";
+}
+
+// Tlačítko - rekapitulace
+const confirmOrder = document.querySelector("#confirm-order");
+
+if (confirmOrder) {
+     confirmOrder.addEventListener("click", function () {
+
+          localStorage.removeItem("kosik");
+          localStorage.removeItem("doprava");
+          localStorage.removeItem("platba");
+          localStorage.removeItem("udajeZakaznika");
+
+          window.location.href = "dekujeme.html"
+     });
+}
+
+// Tlačítko - objednavka
+const toShipping = document.querySelector("#to-shipping");
+
+if (toShipping) {
+     toShipping.addEventListener("click", function () {
+          window.location.href = "doprava.html";
+     });
+}
+
+
+
+
+
+
 
 
 

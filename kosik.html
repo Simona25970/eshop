@@ -22,23 +22,101 @@
                     <li><a href="index.html">Úvod</a></li>
                     <li><a href="index.html#products">Obchod</a></li>
                     <li><a href="#">O mně</a></li>
-                    <li><a href="#">Kontakt</a></li>
-                    <li><a href="kosik.html">🛒</a></li>
+                    <li><a href="index.html#contact-section">Kontakt</a></li>
+                    <li><a href="#">🛒</a></li>
                </ul>
           </nav>
      </header>
 
      <main>
           <section class="cart-section">
+               <div class="checkout-steps">
+                    <span class="active">1. Košík</span>
+                    <span>→</span>
+                    <span>2. Doprava a platba</span>
+                    <span>→</span>
+                    <span>3. Dodací údaje</span>
+                    <span>→</span>
+                    <span>4. Shrnutí</span>
+
+               </div>
                <div class="container">
 
-                    <h1>VÁŠ KOŠÍK</h1>
+                    <h1>Obsah košíku</h1>
+
+                    <h2 id="empty-cart">Váš košík je prázdný</h2>
 
                     <div id="cart">
+                    </div>
+
+                    <div id="cart-total"></div>
+
+                    <div class="cart-buttons">
+                         <a href="index.html#products" class="continue-shopping">← Pokračovat v nákupu</a>
+
+                         <a href="doprava.html" class="checkout-button">Doprava a platba →</a>
                     </div>
                </div>
           </section>
      </main>
+
+     <section id="contact-section">
+          <footer class="site-footer">
+               <div class="eshop-icon">🛒</div>
+               <div class="footer-container">
+
+                    <!-- 1. sloupec: O mně / Kontakt -->
+                    <div class="footer-col">
+                         <h3>O e-shopu</h3>
+                         <p>Vytvářím kvalitní obrazy</p>
+                         <p><strong>Telefon:</strong>+420 773 511 708</p>
+                         <p><strong>E-mail:</strong>arteshop@seznam.cz</p>
+                    </div>
+
+                    <!-- 2. sloupec: Rychlé odkazy -->
+                    <div class="footer-col">
+                         <h3>Zákaznický servis</h3>
+                         <ul>
+                              <li><a href="doprava-a-platba.html">Doprava a platba</a></li>
+                              <li><a href="reklamace.html">Reklamace a vrácení zboží</a></li>
+                              <li><a href="obchodni-podminky">Obchodní podmínky</a></li>
+                         </ul>
+                    </div>
+
+                    <!-- 3.sloupec - newsletter -->
+                    <div class="footer-col newsletter-col">
+                         <h3>Odběr newsletteru</h3>
+                         <p>Získejte <span class="discount">slevu 10%</span> na první nákup</p>
+                         <form class="footer-newsletter-form">
+                              <input type="email" placeholder="Váš e-mail..." required class="newsletter-input">
+
+                              <button type="submit" class="newsletter-btn"><i class="ri-send-plane-fill"></i></button>
+                         </form>
+                    </div>
+
+
+                    <!-- 4. sloupec: Sociální sítě s ikonkami -->
+                    <div class="footer-col">
+                         <h3>Sledujte mě</h3>
+                         <div class="social-links">
+                              <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i
+                                        class="ri-facebook-circle-fill"></i></a>
+                              <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i
+                                        class="ri-instagram-fill"></i></a>
+                              <a href="https://tiktok.com" target="_blank" aria-label="TikTok"><i
+                                        class="ri-tiktok-fill"></i></a>
+                         </div>
+                    </div>
+               </div>
+
+               <div class="footer-bottom">
+                    <p>&copy; 2026 Simona Florusová | E-shop | S-Art</p>
+                    <a href="zasady-ochrany-osobnich-udaju.html">• Ochrana osobních údajů</a>
+                    <a href="cookies.html">• Cookies</a>
+               </div>
+          </footer>
+     </section>
+
 
      <script src="js/script.js"></script>
 </body>

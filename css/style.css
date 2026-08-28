@@ -83,6 +83,29 @@ header .title-container h2 {
      transition: all 0.3s ease-in-out;
 }
 
+.main-nav .kosik {
+     font-size: 34px;
+}
+
+/* Navigační krokový ukazatel */
+.checkout-steps {
+     display: flex;
+     font-family: 'Yeseva One', Arial, Helvetica, sans-serif;
+     color: #899;
+     font-weight: bold;
+     justify-content: center;
+     align-items: center;
+     gap: 30px;
+     margin-top: 95px;
+     margin-bottom: 40px;
+     font-size: 18px;
+}
+
+.checkout-steps .active {
+     color: #8bb8e8;
+     font-weight: bold;
+}
+
 /* Obchod */
 
 .products-section h2 {
@@ -131,6 +154,10 @@ header .title-container h2 {
      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
 }
 
+.product-detail-page {
+     padding: 120px 40px 80px;
+}
+
 .product-image {
      height: 300px;
      overflow: hidden;
@@ -150,7 +177,8 @@ header .title-container h2 {
 }
 
 .detail-info {
-     padding: 40px;
+     padding: 80px;
+     text-align: center;
 }
 
 .detail-info h3 {
@@ -179,9 +207,6 @@ header .title-container h2 {
      transform: scale(1.03);
 }
 
-.product-info {
-     padding: 15px 5px 5px;
-}
 
 .product-info h3 {
      margin-bottom: 8px;
@@ -252,7 +277,490 @@ header .title-container h2 {
      margin-top: 15px !important;
 }
 
+/* Tlačítko odebrat */
+.remove-cart {
+     margin-top: 15px;
+     padding: 10px 18px;
+     border: none;
+     background: #eeeeee;
+     color: #333;
+     font-weight: 600;
+     font-family: inherit;
+     cursor: pointer;
+     transition: 0.3s;
+}
+
+.remove-cart:hover {
+     background: #dcdcdc;
+}
+
+/* Celková cena */
+#cart-total {
+     max-width: 900px;
+     margin: 40px auto 0;
+     padding: 25px 20px;
+     border-top: 2px solid #eeeeee;
+     text-align: left;
+}
+
+#cart-total h2 {
+     margin: 0;
+     font-size: 24px;
+}
+
+/* Tlačítka v košíku */
+.cart-buttons {
+     max-width: 900px;
+     margin: 30px auto 0;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     gap: 20px;
+}
+
+.cart-buttons a {
+     display: inline-block;
+     padding: 12px 22px;
+     text-decoration: none;
+     transition: 0.3s;
+}
+
+.continue-shopping {
+     color: #333;
+     border: 1px solid #dddddd;
+     background: #fff;
+}
+
+.continue-shopping:hover {
+     background: #eeeeee;
+}
+
+.checkout-button {
+     color: #fff;
+     font-size: 17px;
+     padding: 15px 20px;
+     font-weight: bold;
+     border-radius: 6px;
+     background: #2f6f6b;
+     border: 1px solid #2f6f6b;
+     cursor: pointer;
+}
+
+.checkout-button:hover {
+     background: #245956;
+}
+
+.order-form-container {
+     /* doprava, formulář, rekapitulace */
+     max-width: 800px;
+     background: #ffffff;
+     padding: 30px;
+     margin: 45px auto;
+     border-radius: 8px;
+     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.order-form-container h2 {
+     margin-top: 0;
+     margin-bottom: 35px !important;
+     color: #333;
+     text-align: center;
+}
+
+.order-options {
+     display: flex;
+     gap: 25px;
+}
+
+.box {
+     width: 100%;
+     padding: 20px;
+     border: 1px solid #ccc;
+}
+
+.order-form {
+     background: #fafafa;
+     border-bottom: 1px solid #e5e5e5;
+     border-radius: 10px;
+}
+
+.form-section h3 {
+     font-size: 17px;
+     color: #006b68;
+     margin-top: 0;
+     margin-bottom: 20px;
+}
+
+/* Jednotlivé možnosti */
+.form-section label {
+     display: flex;
+     align-items: center;
+     gap: 10px;
+     padding: 12px 10px;
+     margin-bottom: 8px;
+     border-radius: 6px;
+     cursor: pointer;
+     color: #555555;
+     transition: background-color 0.2s ease;
+}
+
+.form-section label:hover {
+     background-color: #f0f0f0;
+}
+
+.form-group {
+     margin-bottom: 15px;
+}
+
+.form-row {
+     display: flex;
+     gap: 15px;
+}
+
+.form-row .form-group {
+     flex: 1;
+}
+
+/* Radio button */
+.form-section input [type="radio"] {
+     width: 17px;
+     height: 17px;
+     accent-color: #006b68;
+     cursor: pointer;
+}
+
+input:not([type="radio"]),
+select {
+     width: 100%;
+     padding: 10px;
+     border: 1px solid #cccccc;
+     border-radius: 4px;
+     font-size: 14px;
+     box-sizing: border-box;
+}
+
+input:not([type="radio"]):focus,
+select:focus {
+     border-color: #0066cc;
+     outline: none;
+}
+
+/* Tlačítko - doprava a platba */
+.order-form-container button[type="submit"] {
+     width: 100%;
+     margin-top: 30px;
+     padding: 13px 20px;
+     border: none;
+     border-radius: 6px;
+     background-color: #006b68;
+     color: #fff;
+     font-size: 16px;
+     font-weight: bold;
+     cursor: pointer;
+     transition: background-color 0.2s ease;
+}
+
+.order-form-container button[type="submit"]:hover {
+     background-color: #00504e;
+}
+
+.submit-btn {
+     width: 100%;
+     background-color: #0066cc;
+     color: white;
+     padding: 12px;
+     border: none;
+     border-radius: 4px;
+     font-size: 16px;
+     cursor: pointer;
+     font-weight: bold;
+}
+
+.submit-btn:hover {
+     background-color: #004d99;
+}
+
+/* Rekapitulace */
+.summary-section {
+     margin-bottom: 30px;
+     padding-bottom: 20px;
+     border-bottom: 1px solid #eeeeee;
+}
+
+.summary-section h3 {
+     margin-bottom: 20px;
+     color: #333;
+}
+
+.summary-items {
+     display: flex;
+     align-items: center;
+     gap: 20px;
+     padding: 15px 0;
+     border-bottom: 1px solid #eeeeee;
+}
+
+.summary-items img {
+     width: 100px;
+     height: 80px;
+     object-fit: cover;
+     border-radius: 6px;
+}
+
+.summary-items h4 {
+     margin: 0 0 8px;
+     color: #333;
+}
+
+.summary-items p {
+     margin: 4px 0;
+     color: #666;
+}
+
+.summary-total {
+     text-align: right !important;
+     margin: 30px 0;
+     padding-top: 20px;
+     border-bottom: 2px solid #eeeeee;
+}
+
+.summary-total h2 {
+     margin: 0;
+     color: #333;
+}
+
+#summary-shipping,
+#summary-payment,
+#summary-customer {
+     margin-top: 10px;
+     color: #555;
+}
+
+/* Děkuji za objednávku */
+.thank-you-page {
+     min-height: 100vh;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     padding: 40px 20px;
+     background: #fafafa;
+}
+
+.thank-you-container {
+     max-width: 650px;
+     width: 100%;
+     padding: 60px 40px;
+     text-align: center;
+     background: #fff;
+     border: 1px solid #eeeeee;
+}
+
+.thank-you-icon {
+     font-size: 50px;
+     margin-bottom: 20px;
+}
+
+.thank-you-container h1 {
+     margin-bottom: 20px;
+}
+
+.thank-you-container p {
+     margin: 10px 0;
+     line-height: 1.7;
+}
+
+.thank-you-text {
+     font-size: 18px;
+     font-weight: 600;
+}
+
+.thank-you-button {
+     display: inline-block;
+     margin-top: 30px;
+     padding: 13px 25px;
+     color: #fff;
+     font-size: 18px;
+     font-weight: bold;
+     background: #2f6f6b;
+     text-decoration: none;
+     transition: 0.3s;
+}
+
+.thank-you-button:hover {
+     background: #245956;
+}
+
+/* Footer a copyright */
+.eshop-icon {
+     text-align: center;
+     font-size: 50px;
+     margin-bottom: 30px;
+}
+
+.site-footer {
+     background-color: #f0f0f0;
+     color: #444;
+     margin-top: 100px;
+     padding: 40px 20px 20px;
+}
+
+.footer-container {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: space-between;
+     max-width: 1200px;
+     margin: 0 auto;
+     gap: 30px;
+}
+
+.footer-col {
+     flex-direction: 1;
+     min-width: 220px;
+}
+
+.footer-col h3 {
+     font-size: 18px;
+     margin-bottom: 15px;
+     color: #006b68;
+}
+
+.footer-col p {
+     line-height: 1.6;
+}
+
+.footer-col ul {
+     list-style: none;
+     padding: 0;
+     margin: 0;
+}
+
+.footer-col ul li {
+     margin-bottom: 8px;
+}
+
+.footer-col a {
+     color: #777;
+     text-decoration: none;
+}
+
+.footer-col a:hover {
+     color: #333;
+     text-decoration: underline;
+}
+
+.footer-bottom {
+     text-align: center;
+     border-top: 1px solid #999;
+     margin-top: 30px;
+     padding-top: 15px;
+     font-size: 14px;
+     color: #555;
+}
+
+/* Newsletter + soc.sítě*/
+.discount {
+     color: red;
+     font-weight: 700;
+}
+
+.newsletter-col p {
+     font-size: 14px;
+     margin-bottom: 12px;
+     color: #777;
+}
+
+.footer-newsletter-form {
+     display: flex;
+     max-width: 280px;
+}
+
+.footer-newsletter-form .newsletter-input {
+     flex: 1;
+     padding: 10px 12px;
+     border: 1px solid #555;
+     border-radius: 4px 0 0 4px;
+     background-color: #333;
+     color: #fff;
+     font-size: 15px;
+     outline: none;
+}
+
+.footer-newsletter-form .newsletter-input::placeholder {
+     color: #999;
+}
+
+.footer-newsletter-form .newsletter-btn {
+     background-color: #f39c12;
+     color: #fff;
+     border: none;
+     padding: 0 15px;
+     border-radius: 0 4px 4px 0;
+     cursor: pointer;
+     transition: background 0.3s ease;
+}
+
+.footer-newsletter-form .newsletter-btn:hover {
+     background-color: #e67e22;
+}
+
+/* ikony -soc.síť */
+.social-links {
+     display: flex;
+     gap: 12px;
+     margin-top: 10px;
+}
+
+.social-links a {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     width: 40px;
+     height: 40px;
+     background-color: #333;
+     color: #fff;
+     border-radius: 50%;
+     font-size: 18px;
+     transition: all 0.3s ease;
+     text-decoration: none;
+}
+
+.social-links a:hover {
+     color: #fff;
+     text-decoration: none;
+     transform: translateY(-3px);
+}
+
+.social-links a[aria-label="Facebook"]:hover {
+     background-color: #1877f2;
+}
+
+.social-links a[aria-label="Instagram"]:hover {
+     background-color: #e1206c;
+}
+
+.social-links a[aria-label="TikTok"]:hover {
+     background-color: #000000;
+     box-shadow: 0 0 5px #00f2fe;
+}
+
 .container {
      max-width: 1200px;
      margin: 0 auto;
+}
+
+/* Queries - responzivita */
+@media (max-width: 700px) {
+     .order-form-container {
+          margin: 25px 15px;
+          padding: 20px;
+     }
+
+     .order-options {
+          flex-direction: column;
+          gap: 20px;
+     }
+
+     .form-section {
+          padding: 20px;
+     }
 }
