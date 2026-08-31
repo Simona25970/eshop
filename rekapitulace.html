@@ -6,6 +6,8 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>Rekapitulace | S-Art</title>
      <link rel="stylesheet" href="css/style.css">
+     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet" media="print"
+          onload="this.media='all'" />
 </head>
 
 <body>
@@ -21,9 +23,15 @@
                <ul class="main-nav jq--main-nav">
                     <li><a href="index.html">Úvod</a></li>
                     <li><a href="index.html#products">Obchod</a></li>
-                    <li><a href="#">O mně</a></li>
                     <li><a href="index.html#contact-section">Kontakt</a></li>
-                    <li><a href="kosik.html" class="kosik">🛒</a></li>
+                    <li class="cart-menu"><a href="kosik.html" class="kosik">🛒 <span class="cart-count">0</span></a>
+                         <div class="cart-dropdown">
+                              <h3>Váš košík</h3>
+                              <div class="cart-dropdown-items"></div>
+                              <p class="cart-dropdown-total"></p>
+                              <a href="kosik.html" class="cart-dropdown-button">Zobrazit košík</a>
+                         </div>
+                    </li>
                </ul>
           </nav>
      </header>
@@ -69,24 +77,24 @@
 
      <section id="contact-section">
           <footer class="site-footer">
-               <div class="eshop-icon">🛒</div>
+               <div class="eshop-icon"><i class="ri-shopping-bag-fill"></i></div>
                <div class="footer-container">
 
                     <!-- 1. sloupec: O mně / Kontakt -->
                     <div class="footer-col">
-                         <h3>O e-shopu</h3>
-                         <p>Vytvářím kvalitní obrazy</p>
-                         <p><strong>Telefon:</strong>+420 773 511 708</p>
-                         <p><strong>E-mail:</strong>arteshop@seznam.cz</p>
+                         <h3>Kontakt</h3>
+                         <p><strong><i class="ri-phone-fill"></i></strong> &nbsp; +420 773 511 708</p>
+                         <p><strong><i class="ri-mail-fill"></i></strong> &nbsp; florusova.simona@seznam.cz</p>
+                         <p><strong><i class="ri-map-pin-fill"></i></strong> &nbsp; Spodní 670/2, Brno 62500</p>
                     </div>
 
                     <!-- 2. sloupec: Rychlé odkazy -->
                     <div class="footer-col">
                          <h3>Zákaznický servis</h3>
                          <ul>
-                              <li><a href="doprava-a-platba.html">Doprava a platba</a></li>
+                              <li><a href="doprava-platba.html">Doprava a platba</a></li>
                               <li><a href="reklamace.html">Reklamace a vrácení zboží</a></li>
-                              <li><a href="obchodni-podminky">Obchodní podmínky</a></li>
+                              <li><a href="obchodni-podminky.html">Obchodní podmínky</a></li>
                          </ul>
                     </div>
 
@@ -118,7 +126,7 @@
 
                <div class="footer-bottom">
                     <p>&copy; 2026 Simona Florusová | E-shop | S-Art</p>
-                    <a href="zasady-ochrany-osobnich-udaju.html">• Ochrana osobních údajů</a>
+                    <a href="zasady.html">• Ochrana osobních údajů</a>
                     <a href="cookies.html">• Cookies</a>
                </div>
           </footer>

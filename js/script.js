@@ -193,7 +193,7 @@ if (productDetail) {
           <a href="" class="btn detail-cart">
           PŘIDAT DO KOŠÍKU
           </a>
-          
+          <p class="italic">Tento web je součástí vyvojářského portfolia, objednávka je simulovaná.</p>
           </div>
           `;
 
@@ -256,12 +256,9 @@ if (cart) {
                          <button class="remove-cart" data-id="${produkt.id}">
                                         Odebrat z košíku
                          </button>
-
                     </div>
-
                </article>
           `;
-
      });
 
 
@@ -507,6 +504,49 @@ if (toShipping) {
      toShipping.addEventListener("click", function () {
           window.location.href = "doprava.html";
      });
+}
+
+
+// Počet produktů v košíku
+const cartCount = document.querySelector(".cart-count");
+
+if (cartCount) {
+     const kosik = JSON.parse(localStorage.getItem("kosik")) || [];
+
+     cartCount.textContent = kosik.length;
+}
+
+// Produkty v dropdown košíku
+const cartDropdownItems = document.querySelector(".cart-dropdown-items");
+const cartDropdownTotal = document.querySelector(".cart-dropdown-total");
+
+if (cartDropdownItems && cartDropdownTotal) {
+     const kosik = JSON.parse(localStorage.getItem("kosik")) || [];
+
+     let celkem = 0;
+
+     kosik.forEach(function (produkt) {
+
+          celkem += produkt.cena;
+
+          cartDropdownItems.innerHTML += `
+               <div class="cart-dropdown-item">
+               
+                     <img src="${produkt.obrazek}"
+                          alt="${produkt.nazev}">
+                          
+                     <div class="cart-dropdown-item-info">
+                     
+                           <p>${produkt.nazev}</p>
+
+                           <p class="cart-dropdown-price">
+                                ${produkt.cena.toLocaleString("cs-CZ")} Kč
+                            </p>    
+                     </div>
+               </div>
+          `;
+     });
+     cartDropdownTotal.textContent = `Celkem: ${celkem.toLocaleString("cs-CZ")} Kč;`
 }
 
 

@@ -6,9 +6,35 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>S-Art | Detail obrazu</title>
      <link rel="stylesheet" href="css/style.css">
+     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet" media="print"
+          onload="this.media='all'" />
 </head>
 
 <body>
+     <header>
+          <nav class="menu">
+               <!-- Logo -->
+               <a href="index.html" class="logo">
+                    <img src="img/artlogo.webp" alt="S-Art" width="150" height="110" decoding="async" class="logo">
+               </a>
+
+               <!-- Navigace -->
+               <ul class="main-nav jq--main-nav">
+                    <li><a href="index.html">Úvod</a></li>
+                    <li><a href="index.html#products">Obchod</a></li>
+                    <li><a href="index.html#contact-section">Kontakt</a></li>
+                    <li class="cart-menu"><a href="kosik.html" class="kosik">🛒 <span class="cart-count">0</span></a>
+                         <div class="cart-dropdown">
+                              <h3>Váš košík</h3>
+                              <div class="cart-dropdown-items"></div>
+                              <p class="cart-dropdown-total"></p>
+                              <a href="kosik.html" class="cart-dropdown-button">Zobrazit košík</a>
+                         </div>
+                    </li>
+               </ul>
+          </nav>
+     </header>
+
      <main>
           <div class="container">
                <section class="product-detail-page">
@@ -17,6 +43,64 @@
                </section>
           </div>
      </main>
+
+     <section id="contact-section">
+          <footer class="site-footer">
+               <div class="eshop-icon"><i class="ri-shopping-bag-fill"></i></div>
+               <div class="footer-container">
+
+                    <!-- 1. sloupec: O mně / Kontakt -->
+                    <div class="footer-col">
+                         <h3>Kontakt</h3>
+                         <p><strong><i class="ri-phone-fill"></i></strong> &nbsp; +420 773 511 708</p>
+                         <p><strong><i class="ri-mail-fill"></i></strong> &nbsp; florusova.simona@seznam.cz</p>
+                         <p><strong><i class="ri-map-pin-fill"></i></strong> &nbsp; Spodní 670/2, Brno 62500</p>
+                    </div>
+
+                    <!-- 2. sloupec: Rychlé odkazy -->
+                    <div class="footer-col">
+                         <h3>Zákaznický servis</h3>
+                         <ul>
+                              <li><a href="doprava-platba.html">Doprava a platba</a></li>
+                              <li><a href="reklamace.html">Reklamace a vrácení zboží</a></li>
+                              <li><a href="obchodni-podminky.html">Obchodní podmínky</a></li>
+                         </ul>
+                    </div>
+
+                    <!-- 3.sloupec - newsletter -->
+                    <div class="footer-col newsletter-col">
+                         <h3>Odběr newsletteru</h3>
+                         <p>Získejte <span class="discount">slevu 10%</span> na první nákup</p>
+                         <form class="footer-newsletter-form">
+                              <input type="email" placeholder="Váš e-mail..." required class="newsletter-input">
+
+                              <button type="submit" class="newsletter-btn"><i class="ri-send-plane-fill"></i></button>
+                         </form>
+                    </div>
+
+
+                    <!-- 4. sloupec: Sociální sítě s ikonkami -->
+                    <div class="footer-col">
+                         <h3>Sledujte mě</h3>
+                         <div class="social-links">
+                              <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i
+                                        class="ri-facebook-circle-fill"></i></a>
+                              <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i
+                                        class="ri-instagram-fill"></i></a>
+                              <a href="https://tiktok.com" target="_blank" aria-label="TikTok"><i
+                                        class="ri-tiktok-fill"></i></a>
+                         </div>
+                    </div>
+               </div>
+
+               <div class="footer-bottom">
+                    <p>&copy; 2026 Simona Florusová | E-shop | S-Art</p>
+                    <a href="zasady.html">• Ochrana osobních údajů</a>
+                    <a href="cookies.html">• Cookies</a>
+               </div>
+          </footer>
+     </section>
+
 
      <script src="js/script.js"></script>
 
