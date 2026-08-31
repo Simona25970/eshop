@@ -92,6 +92,32 @@ header .title-container h2 {
      font-size: 34px;
 }
 
+/* Mobile menu */
+.mobile-nav-icon img {
+     display: none;
+     float: right;
+     cursor: pointer;
+}
+
+/* Mobilní overlay - překrytí*/
+.mobile-nav-back {
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100vh;
+     background: rgba(0, 0, 0, 0.08);
+     opacity: 0;
+     z-index: 9998 !important;
+     pointer-events: none;
+     transition: opacity 0.5s ease-in-out;
+}
+
+.mobile-nav-back.open {
+     opacity: 1;
+     pointer-events: auto !important;
+}
+
 /* Navigační krokový ukazatel */
 .checkout-steps {
      display: flex;
@@ -922,6 +948,26 @@ select:focus {
      margin-top: 15px;
 }
 
+/* Reklamace */
+.complaint {
+     margin: 100px 0 120px;
+}
+
+.complaint h1 {
+     font-size: 1.8em;
+}
+
+.complaint h2 {
+     font-size: 1.1em;
+     text-align: left;
+     margin-top: 30px;
+}
+
+.complaint p {
+     margin: 12px;
+     font-size: 17px;
+}
+
 /* Obchodní podmínky */
 .part {
      max-width: 1200px;
@@ -1004,7 +1050,7 @@ select:focus {
 }
 
 /* Queries - responzivita */
-@media (max-width: 700px) {
+@media (max-width: 768px) {
      .order-form-container {
           margin: 25px 15px;
           padding: 20px;
@@ -1017,5 +1063,141 @@ select:focus {
 
      .form-section {
           padding: 20px;
+     }
+
+     .arteshop {
+          width: 100%;
+          margin: 0 auto;
+          margin-top: 40px;
+     }
+
+     .products {
+          grid-template-columns: 1fr;
+     }
+
+     .checkout-steps {
+          flex-direction: column;
+          gap: 10px;
+          font-size: 16px;
+          margin-top: 60px;
+     }
+
+     .menu {
+          justify-content: flex-start;
+     }
+
+     .menu ul li {
+          margin: 15px;
+     }
+
+     .mobile-nav-icon img {
+          display: block;
+          position: absolute;
+          right: 20px;
+          top: 16px;
+          z-index: 10001;
+          /* musí být nad menu */
+          cursor: pointer;
+     }
+
+     .main-nav {
+          display: none;
+     }
+
+     .main-nav.open {
+          display: flex;
+          flex-direction: column;
+          position: fixed;
+          top: 70px;
+          right: 0;
+          width: 250px;
+          padding: 20px;
+          margin: 0;
+          background: #f8f7f4;
+          gap: 10px;
+          z-index: 9999;
+     }
+
+     .main-nav.open li {
+          width: 100%;
+          margin: 0;
+     }
+
+     .main-nav.open li a {
+          display: block;
+          padding: 12px;
+     }
+
+     .remove-cart {
+          display: block;
+     }
+
+     .cart-buttons {
+          display: block;
+          padding: 5px;
+          height: auto;
+          justify-content: center;
+          align-items: center;
+          margin-top: 30px;
+          gap: 10px;
+     }
+
+     .continue-shopping {
+          width: 100%;
+          margin-bottom: 10px;
+          text-align: center;
+     }
+
+     .checkout-button {
+          width: 100%;
+          text-align: center;
+          margin-top: 10px;
+     }
+
+     .btn {
+          margin-bottom: 10px;
+     }
+
+     .cart-count {
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          width: 25px;
+          height: 25px;
+          position: absolute;
+          top: 0;
+          font-size: 20px;
+          color: #fff;
+          background: red;
+          right: 50px;
+          border-radius: 50%;
+     }
+
+     .box-box {
+          grid-template-columns: 1fr;
+          margin-bottom: 15px;
+          margin-left: 5px;
+          margin-right: 5px !important;
+     }
+
+
+     .conditions-title h1 {
+          font-size: 1em;
+          text-align: center;
+     }
+
+     .conditions-text h2 {
+          font-size: 0.9em;
+     }
+
+     .complaint h1 {
+          font-size: 1.1em;
+          text-align: center;
+     }
+
+     .complaint h2 {
+          font-size: 0.9em;
+          text-align: left;
+          margin-top: 30px;
      }
 }

@@ -9,6 +9,8 @@ window.addEventListener('scroll', function () {
      }
 });
 
+
+
 const produkty = [
      {
           id: 1,
@@ -547,6 +549,35 @@ if (cartDropdownItems && cartDropdownTotal) {
           `;
      });
      cartDropdownTotal.textContent = `Celkem: ${celkem.toLocaleString("cs-CZ")} Kč;`
+}
+
+// Mobile
+const navIcon = document.querySelector(".jq--nav-icon");
+const mainNav = document.querySelector(".jq--main-nav");
+const navBack = document.querySelector(".mobile-nav-back");
+
+if (navIcon && mainNav && navBack) {
+
+     navIcon.addEventListener("click", function () {
+
+          mainNav.classList.toggle("open");
+          navBack.classList.toggle("open");
+
+          if (mainNav.classList.contains("open")) {
+               navIcon.src = "img/crossMenu.webp";
+          } else {
+               navIcon.src = "img/hamburgerMenu.webp";
+          }
+
+     });
+
+     navBack.addEventListener("click", function () {
+
+          mainNav.classList.remove("open");
+          navBack.classList.remove("open");
+          navIcon.src = "img/hamburgerMenu.webp";
+
+     });
 }
 
 
