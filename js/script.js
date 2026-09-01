@@ -551,6 +551,73 @@ if (cartDropdownItems && cartDropdownTotal) {
      cartDropdownTotal.textContent = `Celkem: ${celkem.toLocaleString("cs-CZ")} Kč;`
 }
 
+const scrollBtn = document.getElementById("scrollToTop");
+
+window.onscroll = function () {
+     if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+          scrollBtn.style.display = "block";
+     } else {
+          scrollBtn.style.display = "none";
+     }
+};
+
+// plynulý scroll nahoru
+scrollBtn.onclick = function () {
+     window.scrollTo({
+          top: 0,
+          behavior: 'smooth',
+     });
+};
+
+// Cookies
+function setCookie(name, value, days) {
+     let expires = '';
+     if (days) {
+          const maxAge = days * 24 * 60 * 60;
+          expires = `; max-age=${maxAge}`;
+     }
+     document.cookie = `${encodeURIComponent(name)}=${encodeURIComponent(value)}${expires}; path=/; SameSite=Lax`;
+}
+
+function getCookie(name) {
+     const cookieString = document.cookie;
+     const cookies = cookieString ? cookieString.split('; ') : [];
+     for (const cookie of cookies) {
+          const [key, value] = cookie.split('=');
+          if (decodeURIComponent(key) === name) {
+               return decodeURIComponent(value || '');
+          }
+     }
+     return null;
+}
+
+function hasCookieConsent() {
+     return getCookie('cookieConsent') === 'true';
+}
+
+window.addEventListener('DOMContentLoaded', function () {
+     const cookieBar = document.getElementById('cookie-bar');
+     const acceptButton = document.getElementById('cookie-accept');
+     if (!cookieBar || !acceptButton) {
+          return;
+     }
+
+     cookieBar.style.display = 'none';
+
+     if (!hasCookieConsent()) {
+          setTimeout(function () {
+               cookieBar.style.display = 'block';
+          }, 1000);
+     }
+
+     acceptButton.addEventListener('click', function () {
+          setCookie('cookieConsent', 'true', 365);
+          cookieBar.style.display = 'none';
+     });
+});
+
+
+
 // Mobile
 const navIcon = document.querySelector(".jq--nav-icon");
 const mainNav = document.querySelector(".jq--main-nav");
