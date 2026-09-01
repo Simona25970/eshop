@@ -364,11 +364,11 @@ header .title-container h2 {
      display: inline-flex;
      justify-content: center;
      align-items: center;
-     width: 25px;
-     height: 25px;
+     width: 23px;
+     height: 23px;
      position: absolute;
      top: 0;
-     font-size: 20px;
+     font-size: 16px;
      color: #fff;
      background: red;
      right: 50px;
@@ -1142,6 +1142,10 @@ select:focus {
           gap: 10px;
      }
 
+     .kosik {
+          font-size: 34px;
+     }
+
      .continue-shopping {
           width: 100%;
           margin-bottom: 10px;
@@ -1162,15 +1166,19 @@ select:focus {
           display: inline-flex;
           justify-content: center;
           align-items: center;
-          width: 25px;
-          height: 25px;
+          width: 23px;
+          height: 23px;
           position: absolute;
-          top: 0;
-          font-size: 20px;
+          top: 15px;
+          font-size: 12px;
           color: #fff;
           background: red;
-          right: 50px;
+          left: 20px;
           border-radius: 50%;
+     }
+
+     .main-nav .kosik {
+          font-size: 45px;
      }
 
      .box-box {
