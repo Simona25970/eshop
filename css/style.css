@@ -775,6 +775,11 @@ select:focus {
      color: #555;
 }
 
+.footer-bottom a {
+     color: #006b68;
+     text-decoration: none;
+}
+
 /* Newsletter + soc.sítě*/
 .discount {
      color: red;
